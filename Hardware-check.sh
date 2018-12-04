@@ -1,7 +1,7 @@
 #/bin/bash
 
 
-##/ Joshua Hoffman /##
+#// Joshua Hoffman //#
 
 
 FORMATING () {
@@ -16,7 +16,7 @@ FORMATING () {
 }
 
 
-SPINNER () { ##/ Spinning animation (Stack Overflow) /##
+SPINNER () { #// Spinning animation (Stack Overflow) //#
 
             info="$1"
             pid=$!
