@@ -67,7 +67,7 @@ CHECK_ROOT () {
 }
 
 
-CHECK_DEP () {
+CHECK_DEP () { #// Depericated for AUTO_DEP //#
 
     "FORMATING"
 
@@ -92,7 +92,7 @@ CHECK_DEP () {
                 then
 
                     apt-get -y install bsdmainutils
-                                        clear
+                    clear
 
                 elif [ $LMRCL = "n" ]
                 then
@@ -123,7 +123,7 @@ CHECK_DEP () {
                 then
 
                     apt-get -y install hdparm
-                                        clear
+                    clear
 
                 elif [ $LMRHP = "n" ]
                 then
@@ -154,7 +154,7 @@ CHECK_DEP () {
                 then
 
                     apt-get -y install lm-sensors
-                                        clear
+                    clear
 
                 elif [ $LMREA = "n" ]
                 then
@@ -185,7 +185,7 @@ CHECK_DEP () {
                 then
 
                     apt-get -y install smartmontools
-                                        clear
+                    clear
 
                 elif [ $SMREA = "n" ]
                 then
@@ -217,7 +217,7 @@ CHECK_DEP () {
                 then
 
                     apt-get -y install mdadm
-                                        clear
+                    clear
 
                 elif [ $MDREA = "n" ]
                 then
@@ -249,9 +249,9 @@ CHECK_DEP () {
                 then
 
                     apt-get -y install net-tools
-                                        clear
+                    clear
 
-                                elif [ $IFREA = "n" ]
+                elif [ $IFREA = "n" ]
                 then
 
                     clear
@@ -280,7 +280,7 @@ AUTO_DEP () {
         CHKCL=$(dpkg-query -l | grep -c "bsdmainutils")
 
         if [ $CHKHP = 1 ] && [ $CHKLS = 1 ] && [ $CHKSM = 1 ] && [ $CHKMD = 1 ] && [ $CHKIF = 1 ] && [ $CHKCL = 1 ]
-    then
+    	then
 
                 echo $LINS
                 echo "All packages are installed"
@@ -756,7 +756,7 @@ CHECK_HD_1 (){
 
                         fi
 
-                echo $LINS
+        echo $LINS
         echo "HD STATUS:            $HDNUM_1"
         echo $LINS
         echo
@@ -991,14 +991,15 @@ CHECK_RAM () {
 
         clear
 
-EXECUTE () {
+EXECUTE () { #// Configure as needed //#
+
+"FORMATING"
 
 echo
-CHECK_ROOT
-#CHECK_DEP
-AUTO_DEP
-AUTO_HD
-AUTO_NIC
+"CHECK_ROOT"
+"AUTO_DEP"
+"AUTO_HD"
+"AUTO_NIC"
 paste <("CHECK_VIGOR") <("CHECK_SYSTEM") <("CHECK_RAID") | column -s $'\t' -t
 paste <("CHECK_HW") <("CHECK_NET_GLO") <("CHECK_CPU") | column -s $'\t' -t
 paste <("CHECK_NET_1") <("CHECK_NET_2") <("CHECK_NET_3") | column -s $'\t' -t
@@ -1007,6 +1008,7 @@ paste <(echo $LINS) <(echo $LINS) <(echo $LINS) | column -s $'\t' -t
 #paste <("CHECK_CPU") <("CHECK_RAM") | column -s $'\t' -t
 #USER_HD
 #USER_NIC
+#CHECK_DEP
 #CHECK_NET_1
 #CHECK_NET_2
 #CHECK_NET_3
