@@ -589,7 +589,7 @@ RAM_STATUS () {
 
             MEMIN=$(free | grep "Mem" | awk '{print $2}')
             MEMGB=$(free | grep "Mem" | awk '{print $2/1000000}')
-                        MEMTO=$( printf "%1.f\n" $MEMGB)
+            MEMTO=$( printf "%1.f\n" $MEMGB)
             MEMTS=$(dd if=/dev/urandom bs=$MEMIN of=/tmp/memtest count=1050 &> /dev/null) # & "SPINNER" "Checksum test "
             MEMOK_1=$(md5sum /tmp/memtest) # & "SPINNER" "Validating MD5 #1 "
             MEMOK_2=$(md5sum /tmp/memtest) # & "SPINNER" "Validating MD5 #2 "
@@ -791,7 +791,7 @@ CHECK_HD_2 (){
 
                         fi
 
-                echo $LINS
+        echo $LINS
         echo "HD STATUS:            $HDNUM_2"
         echo $LINS
         echo
@@ -831,8 +831,8 @@ CHECK_HD_3 (){
         echo $LINS
         echo
 
-                echo "Realocated:           $OPTR_3"
-                #echo "Error check:          $OPTZ_3"
+        echo "Realocated:           $OPTR_3"
+        #echo "Error check:          $OPTZ_3"
         echo "Size:                 $OPTS_3"
         #echo "Written:              $OPTW_3"
         #echo "Read:                 $OPTR_3"
@@ -857,7 +857,7 @@ CHECK_NET_1 () {
 
         echo "IP:                   $ETHIP_1"
         echo "Netmask:              $ETHNM_1"
-                echo "Gateway:              $ETHGW_1"
+        echo "Gateway:              $ETHGW_1"
         echo "MAC:                  $ETHMA_1"
         #echo "Link detect:          $ETHLD_1"
         echo "Speed:                $ETHSP_1"
@@ -911,7 +911,7 @@ CHECK_CPU (){
         echo $LINS
         echo "CPU STATUS:                 "
         echo $LINS
-                echo
+        echo
 
         echo "Model:                $CPUID"
         echo "Temp:                 $CPUTM"
@@ -929,7 +929,7 @@ CHECK_RAID (){
         echo $LINS
         echo "RAID STATUS:                "
         echo $LINS
-                echo
+        echo
 
                         if [ $RAIDS = 0 ]
                         then
@@ -944,9 +944,9 @@ CHECK_RAID (){
                         fi
 
         echo "Devices:              $RAIDD"
-                echo "Drives:               $RAIDN"
-                echo "State:                $RAIDC"
-                echo "Level:                $RAIDL"
+        echo "Drives:               $RAIDN"
+        echo "State:                $RAIDC"
+        echo "Level:                $RAIDL"
 
 }
 
@@ -955,10 +955,10 @@ CHECK_RAM () {
 
     "FORMATING"
 
-                echo $LINS
+        echo $LINS
         echo "RAM STATUS:           "
         echo $LINS
-                echo
+        echo
 
     "RAM_STATUS"
 
