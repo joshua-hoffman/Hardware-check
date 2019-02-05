@@ -835,12 +835,12 @@ CHECK_HD_2 (){
 			
 			fi
     
-		echo $LINS
+	echo $LINS
         echo "HD STATUS:            $HDNUM_2"
         echo $LINS
         echo
            
-		echo "Realocated:           $OPTR_2"
+	echo "Realocated:           $OPTR_2"
         #echo "Error check:          $OPTZ_2"
         echo "Size:                 $OPTS_2"
         #echo "Written:              $OPTW_2"
@@ -870,13 +870,13 @@ CHECK_HD_3 (){
 			
 			fi
     
-		echo $LINS
+	echo $LINS
         echo "HD STATUS:            $HDNUM_3"
         echo $LINS
         echo 
         
-		echo "Realocated:           $OPTR_3"
-		#echo "Error check:          $OPTZ_3"
+	echo "Realocated:           $OPTR_3"
+	#echo "Error check:          $OPTZ_3"
         echo "Size:                 $OPTS_3"
         #echo "Written:              $OPTW_3"
         #echo "Read:                 $OPTR_3"
@@ -901,7 +901,7 @@ CHECK_NET_1 () {
 		
         echo "IP:                   $ETHIP_1"
         echo "Netmask:              $ETHNM_1"
-		echo "Gateway:              $ETHGW_1"
+	echo "Gateway:              $ETHGW_1"
         echo "MAC:                  $ETHMA_1"
         #echo "Link detect:          $ETHLD_1"
         echo "Speed:                $(( ETHTR_1 / 125000 )) MB/s"
@@ -955,7 +955,7 @@ CHECK_CPU (){
         echo $LINS
         echo "CPU STATUS:                 "
         echo $LINS
-		echo
+	echo
 		
         echo "Model:                $CPUID"
         echo "Temp:                 $CPUTM"
@@ -973,7 +973,7 @@ CHECK_RAID (){
         echo $LINS
         echo "RAID STATUS:                "
         echo $LINS
-		echo
+	echo
 	
 			if [ $RAIDS = 0 ]
 			then
@@ -988,9 +988,9 @@ CHECK_RAID (){
 			fi
         
         echo "Devices:              $RAIDD"
-		echo "Drives:               $RAIDN"
-		echo "State:                $RAIDC"
-		echo "Level:                $RAIDL"
+	echo "Drives:               $RAIDN"
+	echo "State:                $RAIDC"
+	echo "Level:                $RAIDL"
 		
 }
 
@@ -999,10 +999,10 @@ CHECK_RAM () {
 
     "FORMATING"
 		
-		echo $LINS
+	echo $LINS
         echo "RAM STATUS:           "
         echo $LINS
-		echo
+	echo
 
     "RAM_STATUS"
     
