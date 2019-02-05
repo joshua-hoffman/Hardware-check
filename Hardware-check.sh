@@ -8,7 +8,7 @@ FORMATING () {
 
             RED=`tput setaf 1`
             GREEN=`tput setaf 2`
-			BLUE=`tput setaf 4`
+	    BLUE=`tput setaf 4`
             NONE=`tput sgr0`
             LINS="----------------------------------------"
             ELINS="${RED}$LINS${NONE}"
@@ -16,7 +16,7 @@ FORMATING () {
 } 
 
 
-SPINNER () { ##/ Spinning animation (Stack Overflow) /## 
+SPINNER () { ##/ Spinning animation (Stack Overflow) Not mine, not called anymore. It's cool tho, so I left it in for future reference /## 
 
             info="$1"
             pid=$!
@@ -67,7 +67,7 @@ CHECK_ROOT () {
 }
 
 
-CHECK_DEP () { ##/ Depericated for AUTO_DEP /##
+CHECK_DEP () { ##/ Depreciated for AUTO_DEP (Can be removed) /##
 
     "FORMATING"
  
@@ -76,7 +76,7 @@ CHECK_DEP () { ##/ Depericated for AUTO_DEP /##
             CHKSM=$(dpkg-query -l | grep -c "smartmontools")
             CHKMD=$(dpkg-query -l | grep -c "mdadm")
             CHKIF=$(dpkg-query -l | grep -c "net-tools")
-			CHKCL=$(dpkg-query -l | grep -c "bsdmainutils")
+	    CHKCL=$(dpkg-query -l | grep -c "bsdmainutils")
          
 	if [ $CHKCL = 0 ]
     then
@@ -92,7 +92,7 @@ CHECK_DEP () { ##/ Depericated for AUTO_DEP /##
                 then 
                 
                     apt-get -y install bsdmainutils
-					clear
+		    clear
                 
                 elif [ $LMRCL = "n" ]
                 then
@@ -123,7 +123,7 @@ CHECK_DEP () { ##/ Depericated for AUTO_DEP /##
                 then 
                 
                     apt-get -y install hdparm
-					clear
+		    clear
                 
                 elif [ $LMRHP = "n" ]
                 then
@@ -153,8 +153,8 @@ CHECK_DEP () { ##/ Depericated for AUTO_DEP /##
                 if [ $LMREA = "y" ]
                 then
                 
-                    apt-get -y install lm-sensors 
-					clear
+                    apt-get -y install lm-sensors
+		    clear
 					
                 elif [ $LMREA = "n" ]
                 then
@@ -184,8 +184,8 @@ CHECK_DEP () { ##/ Depericated for AUTO_DEP /##
                 if [ $SMREA = "y" ]
                 then
                 
-                    apt-get -y install smartmontools 
-					clear
+                    apt-get -y install smartmontools
+		    clear
 					
                 elif [ $SMREA = "n" ]
                 then
@@ -217,7 +217,7 @@ CHECK_DEP () { ##/ Depericated for AUTO_DEP /##
                 then
                 
                     apt-get -y install mdadm
-					clear
+		    clear
 					
                 elif [ $MDREA = "n" ]
                 then
@@ -249,7 +249,7 @@ CHECK_DEP () { ##/ Depericated for AUTO_DEP /##
                 then
                 
                     apt-get -y install net-tools
-					clear
+		    clear
 					
 				elif [ $IFREA = "n" ]
                 then
@@ -268,19 +268,20 @@ CHECK_DEP () { ##/ Depericated for AUTO_DEP /##
      
 }
 
+
 AUTO_DEP () {
 
 	"FORMATING"
 	
-		CHKHP=$(dpkg-query -l | grep -c "hdparm")
+	CHKHP=$(dpkg-query -l | grep -c "hdparm")
         CHKLS=$(dpkg-query -l | grep -c "lm-sensors")
         CHKSM=$(dpkg-query -l | grep -c "smartmontools")
         CHKMD=$(dpkg-query -l | grep -c "mdadm")
         CHKIF=$(dpkg-query -l | grep -c "net-tools")
-		CHKCL=$(dpkg-query -l | grep -c "bsdmainutils")
+	CHKCL=$(dpkg-query -l | grep -c "bsdmainutils")
 		
 	if [ $CHKHP = 1 ] && [ $CHKLS = 1 ] && [ $CHKSM = 1 ] && [ $CHKMD = 1 ] && [ $CHKIF = 1 ] && [ $CHKCL = 1 ]
-    then
+    	then
               
 		echo $LINS
 		echo "All packages are installed"
@@ -291,21 +292,20 @@ AUTO_DEP () {
 	elif [ $CHKHP = 0 ] || [ $CHKLS = 0 ] || [ $CHKSM = 0 ] || [ $CHKMD = 0 ] || [ $CHKIF = 0 ] || [ $CHKCL = 0 ]
 	then
 	
-	apt-get install hdparm lm-sensors smartmontools mdadm net-tools bsdmainutils -y
-	clear
+		apt-get install hdparm lm-sensors smartmontools mdadm net-tools bsdmainutils -y
+		clear
 	
-	fi
-	
-		
+	fi	
 
 }
+
 
 BIG_FILE () {
 
 	"FORMATING"
 			
-			CUDIR=$(pwd)
-			BFEXI=$(ls $CUDIR | grep -c Big_file.txt)
+	CUDIR=$(pwd)
+	BFEXI=$(ls $CUDIR | grep -c Big_file.txt)
 
 	if [ $BFEXI = 0 ]
 	then
@@ -321,9 +321,9 @@ AUTO_HD () {
 
 	"FORMATING"
 	
-			HDNUM_1=$(fdisk -l | grep 'Disk /dev/sd*' | awk '{print $2}' | sed -n '1p' | tr -d :)
-			HDNUM_2=$(fdisk -l | grep 'Disk /dev/sd*' | awk '{print $2}' | sed -n '2p' | tr -d :)
-			HDNUM_3=$(fdisk -l | grep 'Disk /dev/sd*' | awk '{print $2}' | sed -n '3p' | tr -d :)
+	HDNUM_1=$(fdisk -l | grep 'Disk /dev/sd*' | awk '{print $2}' | sed -n '1p' | tr -d :)
+	HDNUM_2=$(fdisk -l | grep 'Disk /dev/sd*' | awk '{print $2}' | sed -n '2p' | tr -d :)
+	HDNUM_3=$(fdisk -l | grep 'Disk /dev/sd*' | awk '{print $2}' | sed -n '3p' | tr -d :)
 
 }
 
@@ -332,14 +332,14 @@ AUTO_NIC () {
 
 	"FORMATING"
 	
-			NETIF_1=$(ifconfig | grep "encap:Ethernet" | awk '{print $1}' | tr -d : | sed -n '1p')
-			NETIF_2=$(ifconfig | grep "encap:Ethernet" | awk '{print $1}' | tr -d : | sed -n '2p')
-			NETIF_3=$(ifconfig | grep "encap:Ethernet" | awk '{print $1}' | tr -d : | sed -n '3p')
+	NETIF_1=$(ifconfig | grep "encap:Ethernet" | awk '{print $1}' | tr -d : | sed -n '1p')
+	NETIF_2=$(ifconfig | grep "encap:Ethernet" | awk '{print $1}' | tr -d : | sed -n '2p')
+	NETIF_3=$(ifconfig | grep "encap:Ethernet" | awk '{print $1}' | tr -d : | sed -n '3p')
 
 }
 
 
-USER_HD () {
+USER_HD () { ##/ Depreciated for AUTO_HD (Can be removed) /##
 
     "FORMATING"
 
@@ -359,7 +359,7 @@ USER_HD () {
 
             [[ $HDNUM == '' ]]
             
-				OPTD=$(smartctl -a /dev/$HDNUM | sed -n '4p' | grep -c 'Unable to detect')
+		OPTD=$(smartctl -a /dev/$HDNUM | sed -n '4p' | grep -c 'Unable to detect')
             
                 if [ $OPTD = 1 ] 
                 then
@@ -377,7 +377,7 @@ USER_HD () {
 }
 
 
-USER_NIC () {
+USER_NIC () { ##/ Depreciated for AUTO_NIC (Can be removed) /##
 
     "FORMATING"
 
@@ -397,7 +397,7 @@ USER_NIC () {
 
             [[ $NETIF == '' ]]
             
-				ETHDT=$(ifconfig $NETIF | grep -c "encap:Ethernet")
+		ETHDT=$(ifconfig $NETIF | grep -c "encap:Ethernet")
             
                 if [ $ETHDT = 0 ] 
                 then
@@ -419,11 +419,11 @@ VIGOR_STATUS () {
 
 	"FORMATING"
 	
-			VIGOS=$(uname -a | awk '{print $2}')
-			VIGSN=$(/vigor/scripts/getregvalue.sh /system/HW_SerialNumber)
-			VIGSV=$(/vigor/scripts/getregvalue.sh /version/ServerVersion)
-			VIGPV=$(/vigor/scripts/getregvalue.sh /system/PatchVersion)
-			VIGCL=$(grep -Po '(?<=value=str:")([aA0-zZ9]{0,5})' /vigor/registry/_showtracker_StationCallLetters.regdef)
+	VIGOS=$(uname -a | awk '{print $2}')
+	VIGSN=$(/vigor/scripts/getregvalue.sh /system/HW_SerialNumber)
+	VIGSV=$(/vigor/scripts/getregvalue.sh /version/ServerVersion)
+	VIGPV=$(/vigor/scripts/getregvalue.sh /system/PatchVersion)
+	VIGCL=$(grep -Po '(?<=value=str:")([aA0-zZ9]{0,5})' /vigor/registry/_showtracker_StationCallLetters.regdef)
 
 }
 
@@ -433,21 +433,20 @@ SYSTEM_STATUS () {
 
 	"FORMATING"
 	
-			SYSUT=$(uptime -s | awk -F'( |-)+' '{print $2 "/" $3 "/" $1}' | xargs date +'%m/%d/%y' -d)
-			SYSUS=$(whoami)
-			SYSDI=$(uname -a | awk '{print $6}')
-			SYSKV=$(uname -a | awk '{print $7}')
-			SYSSI=$(ls /storage/ | grep "server*" | awk -F'(_|-)' '{print $4}' | xargs date +'%m/%d/%y' -d)
+	SYSUT=$(uptime -s | awk -F'( |-)+' '{print $2 "/" $3 "/" $1}' | xargs date +'%m/%d/%y' -d)
+	SYSUS=$(whoami)
+	SYSDI=$(uname -a | awk '{print $6}')
+	SYSKV=$(uname -a | awk '{print $7}')
+	SYSSI=$(ls /storage/ | grep "server*" | awk -F'(_|-)' '{print $4}' | xargs date +'%m/%d/%y' -d)
 }
 
-SAT_STATUS () {
-
+SAT_STATUS () { ##/ Not done, not going to waste time calling this until VOS reg values are fixed. The reg values for Calabration are blantly inaccurate. /##
 
 	"FORMATING"
 	
-			SATHW=$(/vigor/scripts/getregvalue.sh /recorder/Adapters/primary/CardType)
-			SATOS=$(/vigor/scripts/getregvalue.sh /recorder/Adapters/primary/Calibration)
-			SATSG=$(/vigor/scripts/getregvalue.sh )
+	SATHW=$(/vigor/scripts/getregvalue.sh /recorder/Adapters/primary/CardType)
+	SATOS=$(/vigor/scripts/getregvalue.sh /recorder/Adapters/primary/Calibration)
+	SATSG=$(/vigor/scripts/getregvalue.sh )
 		
 }
 
@@ -456,11 +455,11 @@ NET_STATUS_GLOBAL () {
 	"FORMATING"
 
 
-			GLODH=$(/vigor/scripts/getregvalue.sh /system/DHCP_Enabled)
-			GLODO=$(cat /storage/config/dns | grep Server1 | awk '{print $2}')
-			GLODT=$(cat /storage/config/dns | grep Server2 | awk '{print $2}')
-			GLONO=$(cat /storage/config/ntp | grep Server1 | awk '{print $2}')
-			GLONT=$(cat /storage/config/ntp | grep Server2 | awk '{print $2}')
+	GLODH=$(/vigor/scripts/getregvalue.sh /system/DHCP_Enabled)
+	GLODO=$(cat /storage/config/dns | grep Server1 | awk '{print $2}')
+	GLODT=$(cat /storage/config/dns | grep Server2 | awk '{print $2}')
+	GLONO=$(cat /storage/config/ntp | grep Server1 | awk '{print $2}')
+	GLONT=$(cat /storage/config/ntp | grep Server2 | awk '{print $2}')
 		
 }
 
@@ -468,82 +467,82 @@ HW_DETECT () {
 
 	"FORMATING"
 	
-			DETMA=$(lspci | grep -c "Matrox")
-			DETSO=$(lspci | grep -c "Philips")
-			DETST=$(lspci | grep -c "544d:6178")
-			DETET=$(lspci | grep -c "82576")
-			DETUS=$(lsblk | grep -c "usb")
-			DETMB=$(dmidecode --type baseboard | grep "Product Name" | awk '{print $3}')
+	DETMA=$(lspci | grep -c "Matrox")
+	DETSO=$(lspci | grep -c "Philips")
+	DETST=$(lspci | grep -c "544d:6178")
+	DETET=$(lspci | grep -c "82576")
+	DETUS=$(lsblk | grep -c "usb")
+	DETMB=$(dmidecode --type baseboard | grep "Product Name" | awk '{print $3}')
 		
 }
 
 
 HD_STATUS_1 (){
 
-    "FORMATING"
+	"FORMATING"
      
-			if [[ -z "$HDNUM_1" ]]
-			then
+	if [[ -z "$HDNUM_1" ]]
+	then
 			
-				HDNUM_1=$(echo "Not detected")
+		HDNUM_1=$(echo "Not detected")
 			
-			else
+	else
 				
-				OPTR_1=$(smartctl -a $HDNUM_1 | grep "Reallocated_Sector_Ct" | awk '{print $10}')
-				OPTT_1=$(smartctl -a $HDNUM_1 | grep "overall-health" | grep -c 'PASSED')
-				OPTS_1=$(smartctl -a $HDNUM_1 | grep "User Capacity:" | awk '{print $5, $6}' | tr -d [ | tr -d ])
-				OPTN_1=$(smartctl -a $HDNUM_1 | grep "Serial Number:" | awk '{print $3}')
-				OPTC_1=$(smartctl -a $HDNUM_1 | grep "Power On Hours:" | tr -d , | awk '{print $4/24}')
-				OPTO_1=$(sync; dd if=$HDNUM_1 of=tempfile bs=1M count=1024 |& grep 'copied' | awk '{print $8}'; sync) # & "SPINNER" "Write speed test "
-				OPTI_1=$(hdparm -Tt $HDNUM_1 | grep buffered | awk '{print $11}') # & "SPINNER" "Read speed test "
+		OPTR_1=$(smartctl -a $HDNUM_1 | grep "Reallocated_Sector_Ct" | awk '{print $10}')
+		OPTT_1=$(smartctl -a $HDNUM_1 | grep "overall-health" | grep -c 'PASSED')
+		OPTS_1=$(smartctl -a $HDNUM_1 | grep "User Capacity:" | awk '{print $5, $6}' | tr -d [ | tr -d ])
+		OPTN_1=$(smartctl -a $HDNUM_1 | grep "Serial Number:" | awk '{print $3}')
+		OPTC_1=$(smartctl -a $HDNUM_1 | grep "Power On Hours:" | tr -d , | awk '{print $4/24}')
+		OPTO_1=$(sync; dd if=$HDNUM_1 of=tempfile bs=1M count=1024 |& grep 'copied' | awk '{print $8}'; sync) # & "SPINNER" "Write speed test "
+		OPTI_1=$(hdparm -Tt $HDNUM_1 | grep buffered | awk '{print $11}') # & "SPINNER" "Read speed test "
 			
-			fi;
+	fi;
 }
 
 
 HD_STATUS_2 (){
 
-    "FORMATING"
+	"FORMATING"
      
-			if [[ -z "$HDNUM_2" ]]
-			then
+	if [[ -z "$HDNUM_2" ]]
+	then
 			
-				HDNUM_2=$(echo "Not detected")
+		HDNUM_2=$(echo "Not detected")
 			
-			else
+	else
 				
-				OPTR_2=$(smartctl -a $HDNUM_2 | grep "Reallocated_Sector_Ct" | awk '{print $10}')
-				OPTT_2=$(smartctl -a $HDNUM_2 | grep "overall-health" | grep -c 'PASSED') 
-				OPTS_2=$(smartctl -a $HDNUM_2 | grep "User Capacity:" | awk '{print $5, $6}' | tr -d [ | tr -d ])
-				OPTN_2=$(smartctl -a $HDNUM_2 | grep "Serial Number:" | awk '{print $3}')
-				OPTC_2=$(smartctl -a $HDNUM_2 | grep "Power On Hours:" | tr -d , | awk '{print $4/24}')
-				OPTO_2=$(sync; dd if=$HDNUM_2 of=tempfile bs=1M count=1024 |& grep 'copied' | awk '{print $8}'; sync) # & "SPINNER" "Write speed test "
-				OPTI_2=$(hdparm -Tt $HDNUM_2 | grep buffered | awk '{print $11}') # & "SPINNER" "Read speed test "
+		OPTR_2=$(smartctl -a $HDNUM_2 | grep "Reallocated_Sector_Ct" | awk '{print $10}')
+		OPTT_2=$(smartctl -a $HDNUM_2 | grep "overall-health" | grep -c 'PASSED') 
+		OPTS_2=$(smartctl -a $HDNUM_2 | grep "User Capacity:" | awk '{print $5, $6}' | tr -d [ | tr -d ])
+		OPTN_2=$(smartctl -a $HDNUM_2 | grep "Serial Number:" | awk '{print $3}')
+		OPTC_2=$(smartctl -a $HDNUM_2 | grep "Power On Hours:" | tr -d , | awk '{print $4/24}')
+		OPTO_2=$(sync; dd if $HDNUM_2 of=tempfile bs=1M count=1024 |& grep 'copied' | awk '{print $8}'; sync) # & "SPINNER" "Write speed test "
+		OPTI_2=$(hdparm -Tt  $HDNUM_2 | grep buffered | awk '{print $11}') # & "SPINNER" "Read speed test "
 			
-			fi;
+	fi;
 }
 
 
 HD_STATUS_3 (){
 
-    "FORMATING"
+	"FORMATING"
      
-			if [[ -z "$HDNUM_3" ]]
-			then
+	if [[ -z "$HDNUM_3" ]]
+	then
 			
-				HDNUM_3=$(echo "Not detected")
+		HDNUM_3=$(echo "Not detected")
 			
-			else
+	else
 			
-				OPTR_3=$(smartctl -a $HDNUM_3 | grep "Reallocated_Sector_Ct" | awk '{print $10}')
-				OPTT_3=$(smartctl -a $HDNUM_3 | grep "overall-health" | grep -c 'PASSED')
-				OPTS_3=$(smartctl -a $HDNUM_3 | grep "User Capacity:" | awk '{print $5, $6}' | tr -d [ | tr -d ])
-				OPTN_3=$(smartctl -a $HDNUM_3 | grep "Serial Number:" | awk '{print $3}')
-				OPTC_3=$(smartctl -a $HDNUM_3 | grep "Power On Hours:" | tr -d , | awk '{print $4/24}')
-				OPTO_3=$(sync; dd if=$HDNUM_3 of=tempfile bs=1M count=1024 |& grep 'copied' | awk '{print $8}'; sync) # & "SPINNER" "Write speed test "
-				OPTI_3=$(hdparm -Tt $HDNUM_3 | grep buffered | awk '{print $11}') # & "SPINNER" "Read speed test "
+		OPTR_3=$(smartctl -a $HDNUM_3 | grep "Reallocated_Sector_Ct" | awk '{print $10}')
+		OPTT_3=$(smartctl -a $HDNUM_3 | grep "overall-health" | grep -c 'PASSED')
+		OPTS_3=$(smartctl -a $HDNUM_3 | grep "User Capacity:" | awk '{print $5, $6}' | tr -d [ | tr -d ])
+		OPTN_3=$(smartctl -a $HDNUM_3 | grep "Serial Number:" | awk '{print $3}')
+		OPTC_3=$(smartctl -a $HDNUM_3 | grep "Power On Hours:" | tr -d , | awk '{print $4/24}')
+		OPTO_3=$(sync; dd if=$HDNUM_3 of=tempfile bs=1M count=1024 |& grep 'copied' | awk '{print $8}'; sync) # & "SPINNER" "Write speed test "
+		OPTI_3=$(hdparm -Tt $HDNUM_3 | grep buffered | awk '{print $11}') # & "SPINNER" "Read speed test "
 
-			fi;
+	fi;
 }
 
 
@@ -551,22 +550,22 @@ NET_STATUS_1 (){
 
 	"FORMATING"
 	
-			if [[ -z "$NETIF_1" ]]
-			then
+	if [[ -z "$NETIF_1" ]]
+	then
 			
-				NETIF_1=$(echo "Not detected")
+		NETIF_1=$(echo "Not detected")
 			
-			else
+	else
 
-				ETHGW_1=$(route | grep "default" | awk '{print $2}')
-				ETHIP_1=$(ifconfig $NETIF_1 | grep 'inet' | awk '{print $2}' | tr -d [:alpha:] | tr -d :)
-				ETHNM_1=$(ifconfig $NETIF_1 | grep 'Mask' | awk '{print $4}' | tr -d [:alpha:] | tr -d :)
-				ETHMA_1=$(ifconfig $NETIF_1 | grep 'HWaddr' | awk '{print $5}')
-				ETHLD_1=$(ethtool $NETIF_1 | grep 'Link detected:' | awk '{print $3}')
-				ETHSP_1=$(ifconfig $NETIF_1 | grep txqueuelen | awk '{print $2}' | tr -d [:alpha:] | tr -d :)
-				ETHTR_1=$(sshpass -p 'XXXXXXXXXX' scp -v -o BindAddress=$ETHIP_1 /vigor/misc/Big_file.txt root@10.33.40.30:/vigor/misc/ 2>&1 | grep "Bytes per second:" | awk '{print $5}' | tr -d , | cut -d "." -f 1)
+		ETHGW_1=$(route | grep "default" | awk '{print $2}')
+		ETHIP_1=$(ifconfig $NETIF_1 | grep 'inet' | awk '{print $2}' | tr -d [:alpha:] | tr -d :)
+		ETHNM_1=$(ifconfig $NETIF_1 | grep 'Mask' | awk '{print $4}' | tr -d [:alpha:] | tr -d :)
+		ETHMA_1=$(ifconfig $NETIF_1 | grep 'HWaddr' | awk '{print $5}')
+		ETHLD_1=$(ethtool $NETIF_1 | grep 'Link detected:' | awk '{print $3}')
+		ETHSP_1=$(ifconfig $NETIF_1 | grep txqueuelen | awk '{print $2}' | tr -d [:alpha:] | tr -d :)
+		ETHTR_1=$(sshpass -p 'XXXXXXXXXX' scp -v -o BindAddress=$ETHIP_1 /vigor/misc/Big_file.txt root@10.33.40.30:/vigor/misc/ 2>&1 | grep "Bytes per second:" | awk '{print $5}' | tr -d , | cut -d "." -f 1)
 
-			fi;
+	fi;
 }
 
 
@@ -574,92 +573,94 @@ NET_STATUS_2 (){
 
 	"FORMATING"
 
-			if [[ -z "$NETIF_2" ]]
-			then
+	if [[ -z "$NETIF_2" ]]
+	then
 			
-				NETIF_2=$(echo "Not detected")
+		NETIF_2=$(echo "Not detected")
 			
-			else
+	else
 			
-				ETHIP_2=$(ifconfig $NETIF_2 | grep 'inet' | awk '{print $2}' | tr -d [:alpha:] | tr -d :)
-				ETHNM_2=$(ifconfig $NETIF_2 | grep 'Mask' | awk '{print $4}' | tr -d [:alpha:] | tr -d :)
-				ETHMA_2=$(ifconfig $NETIF_2 | grep 'HWaddr' | awk '{print $5}')
-				ETHLD_2=$(ethtool $NETIF_2 | grep 'Link detected:' | awk '{print $3}')
-				ETHSP_2=$(ifconfig $NETIF_2 | grep txqueuelen | awk '{print $2}' | tr -d [:alpha:] | tr -d :)
-				ETHTR_2=$(sshpass -p 'XXXXXXXXXX' scp -v -o BindAddress=$ETHIP_2 /vigor/misc/Big_file.txt root@10.33.40.30:/vigor/misc/ 2>&1 | grep "Bytes per second:" | awk '{print $5}' | tr -d , | cut -d "." -f 1)
+		ETHIP_2=$(ifconfig $NETIF_2 | grep 'inet' | awk '{print $2}' | tr -d [:alpha:] | tr -d :)
+		ETHNM_2=$(ifconfig $NETIF_2 | grep 'Mask' | awk '{print $4}' | tr -d [:alpha:] | tr -d :)
+		ETHMA_2=$(ifconfig $NETIF_2 | grep 'HWaddr' | awk '{print $5}')
+		ETHLD_2=$(ethtool $NETIF_2 | grep 'Link detected:' | awk '{print $3}')
+		ETHSP_2=$(ifconfig $NETIF_2 | grep txqueuelen | awk '{print $2}' | tr -d [:alpha:] | tr -d :)
+		ETHTR_2=$(sshpass -p 'XXXXXXXXXX' scp -v -o BindAddress=$ETHIP_2 /vigor/misc/Big_file.txt root@10.33.40.30:/vigor/misc/ 2>&1 | grep "Bytes per second:" | awk '{print $5}' | tr -d , | cut -d "." -f 1)
 
-			fi;
+	fi;
 }
 
 NET_STATUS_3 (){
 
 	"FORMATING"
 	
-			if [[ -z "$NETIF_1" ]]
-			then
+	if [[ -z "$NETIF_1" ]]
+	then
 			
-				NETIF_1=$(echo "Not detected")
+		NETIF_1=$(echo "Not detected")
 			
-			else
+	else
 			
-				ETHIP_3=$(ifconfig $NETIF_3 | grep 'inet' | awk '{print $2}' | tr -d [:alpha:] | tr -d :)
-				ETHNM_3=$(ifconfig $NETIF_3 | grep 'Mask' | awk '{print $4}' | tr -d [:alpha:] | tr -d :)
-				ETHMA_3=$(ifconfig $NETIF_3 | grep 'HWaddr' | awk '{print $5}')
-				ETHLD_3=$(ethtool $NETIF_3 | grep 'Link detected:' | awk '{print $3}')
-				ETHSP_3=$(ifconfig $NETIF_3 | grep txqueuelen | awk '{print $2}' | tr -d [:alpha:] | tr -d :)
-				ETHTR_3=$(sshpass -p 'XXXXXXXXXX' scp -v -o BindAddress=$ETHIP_3 /vigor/misc/Big_file.txt root@10.33.40.30:/vigor/misc/ 2>&1 | grep "Bytes per second:" | awk '{print $5}' | tr -d , | cut -d "." -f 1)
+		ETHIP_3=$(ifconfig $NETIF_3 | grep 'inet' | awk '{print $2}' | tr -d [:alpha:] | tr -d :)
+		ETHNM_3=$(ifconfig $NETIF_3 | grep 'Mask' | awk '{print $4}' | tr -d [:alpha:] | tr -d :)
+		ETHMA_3=$(ifconfig $NETIF_3 | grep 'HWaddr' | awk '{print $5}')
+		ETHLD_3=$(ethtool $NETIF_3 | grep 'Link detected:' | awk '{print $3}')
+		ETHSP_3=$(ifconfig $NETIF_3 | grep txqueuelen | awk '{print $2}' | tr -d [:alpha:] | tr -d :)
+		ETHTR_3=$(sshpass -p 'XXXXXXXXXX' scp -v -o BindAddress=$ETHIP_3 /vigor/misc/Big_file.txt root@10.33.40.30:/vigor/misc/ 2>&1 | grep "Bytes per second:" | awk '{print $5}' | tr -d , | cut -d "." -f 1)
 
-			fi; 
+	fi; 
 }
 
 
 CPU_STATUS (){
 
-    "FORMATING"
-     
-            CPUID=$(lscpu | grep "Model name:" | awk '{print $5}')
-            CPUCC=$(lscpu | grep "Core(s) per socket:" | awk '{print $4}')
-            CPUTM=$(sensors -f | grep "Core 0:" | awk '{print $3}' | tr -d +)
-            CPUFR=$(lscpu | grep "CPU max MHz:" | awk '{print $4}')
-            CPUCT=$(lscpu | sed -n '4p' | grep "CPU(s):" | awk '{print $2}')
+	"FORMATING"
+	
+		CPUID=$(lscpu | grep "Model name:" | awk '{print $5}')
+		CPUCC=$(lscpu | grep "Core(s) per socket:" | awk '{print $4}')
+		CPUTM=$(sensors -f | grep "Core 0:" | awk '{print $3}' | tr -d +)
+		CPUFR=$(lscpu | grep "CPU max MHz:" | awk '{print $4}')
+		CPUCT=$(lscpu | sed -n '4p' | grep "CPU(s):" | awk '{print $2}')
 
 }
 
 
 RAM_STATUS () {
 
-    "FORMATING"
-            
-            MEMIN=$(free | grep "Mem" | awk '{print $2}')
-            MEMGB=$(free | grep "Mem" | awk '{print $2/1000000}')
-			MEMTO=$( printf "%1.f\n" $MEMGB)
-            MEMTS=$(dd if=/dev/urandom bs=$MEMIN of=/tmp/memtest count=1050 &> /dev/null) # & "SPINNER" "Checksum test "
-            MEMOK_1=$(md5sum /tmp/memtest) # & "SPINNER" "Validating MD5 #1 "
-            MEMOK_2=$(md5sum /tmp/memtest) # & "SPINNER" "Validating MD5 #2 "
-            MEMOK_3=$(md5sum /tmp/memtest) # & "SPINNER" "Validating MD5 #3 " 
-            MEMSP=$(dmidecode --type 17 | grep "Speed:" | awk '{print $4}' | tr -d "Unknown" | sed -n '4p')
-            MEMTY=$(dmidecode --type 17 | grep "Type:" | awk '{print $2}' | sed -n '2p')
-            MEMBK_1=$(dmidecode --type 17 | grep "Locator:" | awk '{print $4}' | sed -n '1p')
-            MEMBK_2=$(dmidecode --type 17 | grep "Locator:" | awk '{print $4}' | sed -n '2p')
-            MEMBK_3=$(dmidecode --type 17 | grep "Locator:" | awk '{print $4}' | sed -n '3p')
-            MEMBK_4=$(dmidecode --type 17 | grep "Locator:" | awk '{print $4}' | sed -n '4p')
+	"FORMATING"
+	
+		MEMIN=$(free | grep "Mem" | awk '{print $2}')
+		MEMGB=$(free | grep "Mem" | awk '{print $2/1000000}')
+		MEMTO=$( printf "%1.f\n" $MEMGB)
+		MEMTS=$(dd if=/dev/urandom bs=$MEMIN of=/tmp/memtest count=1050 &> /dev/null) # & "SPINNER" "Checksum test "
+		MEMOK_1=$(md5sum /tmp/memtest) # & "SPINNER" "Validating MD5 #1 "
+		MEMOK_2=$(md5sum /tmp/memtest) # & "SPINNER" "Validating MD5 #2 "
+		MEMOK_3=$(md5sum /tmp/memtest) # & "SPINNER" "Validating MD5 #3 " 
+		MEMSP=$(dmidecode --type 17 | grep "Speed:" | awk '{print $4}' | tr -d "Unknown" | sed -n '4p')
+		MEMTY=$(dmidecode --type 17 | grep "Type:" | awk '{print $2}' | sed -n '2p')
+		MEMBK_1=$(dmidecode --type 17 | grep "Locator:" | awk '{print $4}' | sed -n '1p')
+		MEMBK_2=$(dmidecode --type 17 | grep "Locator:" | awk '{print $4}' | sed -n '2p')
+		MEMBK_3=$(dmidecode --type 17 | grep "Locator:" | awk '{print $4}' | sed -n '3p')
+		MEMBK_4=$(dmidecode --type 17 | grep "Locator:" | awk '{print $4}' | sed -n '4p')
             
 }
 
 
+
 RAID_STATUS (){
 
-    "FORMATING"
+	"FORMATING"
      
-            RAID=$(cat /proc/mdstat | sed -n '2p' | grep -c 'none')
-            RAIDT=$(cat /proc/mdstat | grep 'Personalities' | awk '{print $3}' | tr -d ] | tr -d [)
-            RAIDV=$(cat /proc/mdstat | grep 'active raid*' | awk '{print $1}')
-			RAIDL=$(mdadm --detail /dev/md127 | grep 'Raid Level' | awk '{print $4}' | grep raid* | sed -n '1p')
-			RAIDN=$(mdadm --detail /dev/md127 | grep 'Raid Devices' | awk '{print $4}')
-			RAIDD=$(cat /proc/mdstat | grep -c "active")
-			RAIDP=$(cat /proc/mdstat | grep resync | awk '{print $4}')
-			RAIDC=$(mdadm --detail /dev/md127 | grep "State :" | awk '{print $3 $4 $5}')
-			RAIDS=$(cat /proc/mdstat | grep -c resync)
+	RAID=$(cat /proc/mdstat | sed -n '2p' | grep -c 'none')
+	RAIDT=$(cat /proc/mdstat | grep 'Personalities' | awk '{print $3}' | tr -d ] | tr -d [)
+	RAIDV=$(cat /proc/mdstat | grep 'active raid*' | awk '{print $1}')
+	RAIDL=$(mdadm --detail /dev/md127 | grep 'Raid Level' | awk '{print $4}' | grep raid* | sed -n '1p')
+	RAIDN=$(mdadm --detail /dev/md127 | grep 'Raid Devices' | awk '{print $4}')
+	RAIDD=$(cat /proc/mdstat | grep -c "active")
+	RAIDP=$(cat /proc/mdstat | grep resync | awk '{print $4}')
+	RAIDC=$(mdadm --detail /dev/md127 | grep "State :" | awk '{print $3 $4 $5}')
+	RAIDS=$(cat /proc/mdstat | grep -c resync)
+	
 }
 
 
@@ -668,16 +669,16 @@ CHECK_NET_GLO () {
 	"FORMATING"
 	"NET_STATUS_GLOBAL"
 	
-		echo $LINS
-		echo "NET CONFIG:                 "
-		echo $LINS
-		echo
+	echo $LINS
+	echo "NET CONFIG:                 "
+	echo $LINS
+	echo
 		
-		echo "DHCP:                  $GLODH"
-		echo "DNS 1:                 $GLODO"
-		echo "DNS 2:                 $GLODT"
-		echo "NTP 1:                 $GLONO"
-		echo "NTP 2:                 $GLONT"
+	echo "DHCP:                  $GLODH"
+	echo "DNS 1:                 $GLODO"
+	echo "DNS 2:                 $GLODT"
+	echo "NTP 1:                 $GLONO"
+	echo "NTP 2:                 $GLONT"
 
 }
 
