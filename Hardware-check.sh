@@ -629,19 +629,19 @@ RAM_STATUS () {
 
 	"FORMATING"
 	
-		MEMIN=$(free | grep "Mem" | awk '{print $2}')
-		MEMGB=$(free | grep "Mem" | awk '{print $2/1000000}')
-		MEMTO=$( printf "%1.f\n" $MEMGB)
-		MEMTS=$(dd if=/dev/urandom bs=$MEMIN of=/tmp/memtest count=1050 &> /dev/null) # & "SPINNER" "Checksum test "
-		MEMOK_1=$(md5sum /tmp/memtest) # & "SPINNER" "Validating MD5 #1 "
-		MEMOK_2=$(md5sum /tmp/memtest) # & "SPINNER" "Validating MD5 #2 "
-		MEMOK_3=$(md5sum /tmp/memtest) # & "SPINNER" "Validating MD5 #3 " 
-		MEMSP=$(dmidecode --type 17 | grep "Speed:" | awk '{print $4}' | tr -d "Unknown" | sed -n '4p')
-		MEMTY=$(dmidecode --type 17 | grep "Type:" | awk '{print $2}' | sed -n '2p')
-		MEMBK_1=$(dmidecode --type 17 | grep "Locator:" | awk '{print $4}' | sed -n '1p')
-		MEMBK_2=$(dmidecode --type 17 | grep "Locator:" | awk '{print $4}' | sed -n '2p')
-		MEMBK_3=$(dmidecode --type 17 | grep "Locator:" | awk '{print $4}' | sed -n '3p')
-		MEMBK_4=$(dmidecode --type 17 | grep "Locator:" | awk '{print $4}' | sed -n '4p')
+	MEMIN=$(free | grep "Mem" | awk '{print $2}')
+	MEMGB=$(free | grep "Mem" | awk '{print $2/1000000}')
+	MEMTO=$( printf "%1.f\n" $MEMGB)
+	MEMTS=$(dd if=/dev/urandom bs=$MEMIN of=/tmp/memtest count=1050 &> /dev/null) # & "SPINNER" "Checksum test "
+	MEMOK_1=$(md5sum /tmp/memtest) # & "SPINNER" "Validating MD5 #1 "
+	MEMOK_2=$(md5sum /tmp/memtest) # & "SPINNER" "Validating MD5 #2 "
+	MEMOK_3=$(md5sum /tmp/memtest) # & "SPINNER" "Validating MD5 #3 " 
+	MEMSP=$(dmidecode --type 17 | grep "Speed:" | awk '{print $4}' | tr -d "Unknown" | sed -n '4p')
+	MEMTY=$(dmidecode --type 17 | grep "Type:" | awk '{print $2}' | sed -n '2p')
+	MEMBK_1=$(dmidecode --type 17 | grep "Locator:" | awk '{print $4}' | sed -n '1p')
+	MEMBK_2=$(dmidecode --type 17 | grep "Locator:" | awk '{print $4}' | sed -n '2p')
+	MEMBK_3=$(dmidecode --type 17 | grep "Locator:" | awk '{print $4}' | sed -n '3p')
+	MEMBK_4=$(dmidecode --type 17 | grep "Locator:" | awk '{print $4}' | sed -n '4p')
             
 }
 
