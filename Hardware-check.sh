@@ -800,7 +800,7 @@ CHECK_HD_1 (){
 			
 			fi
     
-		echo $LINS
+	echo $LINS
         echo "HD STATUS:            $HDNUM_1"
         echo $LINS
         echo
